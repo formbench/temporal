@@ -3,8 +3,8 @@ databases:
   databaseName: temporal
   user: temporal
   plan: basic-256mb
-  diskSizeGB: 1
-  region: oregon
+  diskSizeGB: 15
+  region: frankfurt
 
 envVarGroups:
   - name: temporal-shared
@@ -25,7 +25,7 @@ services:
   name: temporal-elasticsearch
   autoDeploy: false
   plan: Starter
-  region: oregon
+  region: frankfurt
   env: docker
   dockerfilePath: ./temporal-cluster/elasticsearch/Dockerfile
   disk:
@@ -54,8 +54,8 @@ services:
 - type: pserv
   name: temporal-frontend
   autoDeploy: false
-  plan: Starter
-  region: oregon
+  plan: starter
+  region: frankfurt
   env: docker
   dockerfilePath: ./temporal-cluster/server/auto-setup/Dockerfile
   scaling:
@@ -104,8 +104,8 @@ services:
 - type: pserv
   name: temporal-history
   autoDeploy: false
-  plan: Starter
-  region: oregon
+  plan: starter
+  region: frankfurt
   env: docker
   dockerfilePath: ./temporal-cluster/server/Dockerfile
   scaling:
@@ -151,8 +151,8 @@ services:
 - type: pserv
   name: temporal-matching
   autoDeploy: false
-  plan: Starter
-  region: oregon
+  plan: starter
+  region: frankfurt
   env: docker
   dockerfilePath: ./temporal-cluster/server/Dockerfile
   scaling:
@@ -198,8 +198,8 @@ services:
 - type: pserv
   autoDeploy: false
   name: temporal-worker
-  plan: Starter
-  region: oregon
+  plan: starter
+  region: frankfurt
   env: docker
   dockerfilePath: ./temporal-cluster/server/Dockerfile
   scaling:
@@ -252,8 +252,8 @@ services:
 - type: pserv
   name: temporal-ui
   autoDeploy: false
-  plan: Starter
-  region: oregon
+  plan: starter
+  region: frankfurt
   env: docker
   dockerfilePath: ./temporal-cluster/web/Dockerfile
   envVars:
@@ -273,7 +273,7 @@ services:
 #   repo: https://github.com/render-examples/temporal-rest-proxy
 #   autoDeploy: false
 #   plan: Starter
-#   region: oregon
+#   region: frankfurt
 #   env: go
 #   buildCommand: go build rest-proxy/main.go
 #   startCommand: ./main
@@ -289,7 +289,7 @@ services:
   repo: https://github.com/render-examples/sample-temporal-app
   name: app-workflow-trigger
   plan: Starter
-  region: oregon
+  region: frankfurt
   env: go
   buildCommand: go build start/main.go
   startCommand: ./main
@@ -303,8 +303,8 @@ services:
 - type: worker
   repo: https://github.com/render-examples/sample-temporal-app
   name: app-worker
-  plan: Starter
-  region: oregon
+  plan: starter
+  region: frankfurt
   env: go
   buildCommand: go build worker/main.go
   startCommand: ./main
