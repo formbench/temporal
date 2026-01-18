@@ -136,6 +136,10 @@ services:
     fromDatabase:
       name: temporal-db
       property: database
+  - key: DB_PORT
+    fromDatabase:
+      name: temporal-db
+      property: port
   - key: POSTGRES_USER
     fromDatabase:
       name: temporal-db
@@ -183,6 +187,10 @@ services:
     fromDatabase:
       name: temporal-db
       property: database
+  - key: DB_PORT
+    fromDatabase:
+      name: temporal-db
+      property: port
   - key: POSTGRES_USER
     fromDatabase:
       name: temporal-db
@@ -266,6 +274,8 @@ services:
       name: temporal-frontend
       type: pserv
       property: host
+  - key: TEMPORAL_GRPC_PORT
+    value: 7233
 # For secure external access to the Temporal Workflow Service via REST
 # See https://github.com/render-examples/temporal-rest-proxy
 # - type: web
